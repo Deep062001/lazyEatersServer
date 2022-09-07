@@ -26,7 +26,7 @@ export const updateFoodItem = async (req, res) => {
     const foodItemFromRequest = req.body;
     
     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("No food item with this id");
-
+    console.log("update called");
     const updatedFoodItem = await foodItem.findByIdAndUpdate(_id, { ...foodItemFromRequest, _id}, { new: true });
     res.json(updatedFoodItem);
 }
